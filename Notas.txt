@@ -1,0 +1,204 @@
+añadir siguientes campos en flot-vserv
+1. trabajar en boton adicionar un elemento
+especialidad --> que salga una lista desplegable que obtenga las especialidades
+actividad ---> LISTO
+
+
+2. otro boton para adicionar 
+rrepuesto 
+cantidad 
+valor
+mano de obra 
+
+3. ingresar boton para 
+no servicio
+numero de orden
+valor orden
+numero de factura 
+
+hacer distincion de la finalidad de los posibles clientes, si son para proyectos o para flota
+
+
+
+
+ejemplo para editar valores de la flia 
+
+http://www.plus2net.com/php_tutorial/display-record-edit2-demo.php
+
+
+
+COSAS POR HACER 21/02/2017
+
+codificar a uft-8 la base de datos -> listo
+solucionar consulta en codigo del modulo de tareas
+el boton de estado de los servicios debe estar funcional 
+	--> debe cambiar de color (en curso:azul, atrazado:rojo, entregado:verde)
+
+conferencia 
+
+https://app.webinarjam.net/live/15964/54ea275370/0/101851608
+
+
+cambiar idioma calendario - hecho
+agregar cuadro de busqueda a combobox de flotas - sin realizar
+agregar boton editar y borrar a lista de elementos en cada módulo - en curso
+cambiar a orden ascendente listado de valores - 
+
+TRABAJAR CODIGO JAVASCRIPT PARA MODULO DE FLOTAS
+
+//REVISIONES EN MODULO DE FLOTAS
+habilitar botn editar
+ingresar textfield para descripcion de reparacion en caso de que no se use ningun repuesto
+implementar boton de cambio de estado
+
+
+autocomplete="off"
+<div id="select1" class="" data-toggle="buttons">
+                                        <label class="btn btn-lg btn-success ">
+                                            <input type="radio" name="stat_us" id="ambiente" value="entregado"   >
+                                            <i class="fa fa-check"></i> Entregado
+                                        </label>
+                                        <label class="btn btn-lg btn-<?php echo $c_st; ?> ">
+                                            <input type="radio" name="stat_us" id="ambiente1" value="entregadob" >
+                                            <i class="fa fa-warning"></i> <?php echo $stat; ?>
+                                        </label>   
+                                      </div>
+
+
+<div class="widget-buttons" style="float:right;">
+                                    <div class="btn-group">
+                                        <a class="btn btn-<?php echo $label ?> btn-sm " href="javascript:void(0);">
+                                            <?php echo $row[8];?>
+                                        </a> <a class="btn btn-<?php echo $label ?> btn-sm dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" aria-expanded="false"><i class="fa fa-angle-down"></i></a>
+                                        <ul class="dropdown-menu dropdown-<?php echo $label ?> pull-left">
+                                            <li> <a href="javascript:void(0);">En Curso</a> </li>
+                                            <li> <a href="javascript:void(0);">Atrazada</a> </li>
+                                            <li> <a href="javascript:void(0);">Entregado</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+<div id="select1" class="" data-toggle="buttons">
+                                        <label class="btn btn-lg btn-success active">
+                                            <input type="radio" name="optionx" id="ambiente" value=""  autocomplete="off">
+                                            <i class="fa fa-check"></i> Entregado
+                                        </label>
+                                        <label class="btn btn-lg btn-<?php echo $c_st; ?>">
+                                            <input type="radio" name="optionx" id="ambiente1" value="Entregado" autocomplete="off">
+                                            <i class="fa fa-warning"></i> <?php echo $stat; ?>
+                                        </label>   
+                                      </div>
+
+
+
+ <script>
+        /*
+        function showEdit(editableObj) {
+        $(editableObj).css("background", "#FFF");
+        }
+        function saveToDatabase(editableObj, column, id) {
+        $(editableObj).css("background", "#FFF url(loaderIcon.gif) no-repeat right");
+        $.ajax({
+        url: "saveedit.php", 
+        type: "POST", 
+        data:'column='+column+'&editval='+editableObj.innerHTML+'&id='+id, 
+        //data:{'column':column, 'editval':editableObj.innerHTML, 'id':id}, 
+        success: function (data) {
+        $(editableObj).css("background", "#FDFDFD");
+        }
+        });
+        } */
+        /*    
+        $("#myModal1").on("submit", ".modalForm", function () {
+        var parametros = {
+        "sel_esp": $("input#sel_espc").val()
+        , "sel_act": $("input#sel_actv").val()
+        , "id"
+        };
+        $.ajax({
+        type: "POST"
+        , url: "saveedit.php"
+        , data: parametros
+        , success: function (data) {}
+        , error: function () {}
+        })
+        return false; // Esto para evitar que envíe el formulario.
+        })
+        */
+        
+        //SCRIPT PARA CREAR UNA NUEVA ESPECIALIDAD/ACTIVIDAD
+        function realizaProceso(valorCaja1, valorCaja2) {
+            var parametros = {
+                "valorCaja1": valorCaja1
+                , "valorCaja2": valorCaja2
+            };
+            $.ajax({
+                data: parametros
+                , url: 'saveedit.php'
+                , type: 'post'
+                , beforeSend: function () {
+                    $("#resultado").html("Procesando, espere por favor...");
+                }
+                , success: function (response) {
+                    $("#resultado").html(response);
+                }
+            });
+        }
+        //SCRIPT PARA GUARDAR INFORMACION ADICIONAL
+        function guardaDetllAdc(n_serv, n_ordn, vr_fact, n_fact) {
+            var param = {
+                "n_serv": n_serv
+                , "n_ordn": n_ordn
+                , "vr_fact": vr_fact
+                , "n_fact": n_fact
+            };
+            $.ajax({
+                data: param
+                , url: 'saveedit2.php'
+                , type: 'post'
+                , beforeSend: function () {
+                    $("#resultado").html("Procesando, espere por favor...");
+                }
+                , success: function (response) {
+                    $("#resultado").html("Datos almacenados correctamente.");
+                }
+            });
+        }
+    </script>
+    <script>
+    
+        $(document).on("ready", function(){
+            listar();
+        });
+        
+        var listar = function(){
+            var table = $("#id_tabl").DataTable({
+                "ajax":{
+                  "method":"POST",
+                    "url": "listar.php"
+                },
+                "columns":[
+                    {"data":"repuesto"},
+                    {"data":"cant"},
+                    {"data":"vr_unit"},
+                    {"data":"v_mo"},
+                    {"data":""},
+                    {"data":""}
+                ]
+            });
+        }
+    </script>
+    
+    <!-- SCRIPT PARA CARGAR LA TABLA CON LOS DETALLES DEL SERVICIO -->
+    <script type="text/javascript">
+        function tiempoReal() {
+            var tabla = $.ajax({
+                url: 'detall_serv_ajax.php'
+                , dataType: 'text'
+                , async: false
+            }).responseText;
+            document.getElementById("miTabla").innerHTML = tabla;
+        }
+        setInterval(tiempoReal, 1000);
+    </script>

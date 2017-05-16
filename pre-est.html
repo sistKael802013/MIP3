@@ -1,0 +1,579 @@
+﻿<!DOCTYPE html>
+<!--
+BeyondAdmin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
+Version: 1.5.0
+Purchase: https://wrapbootstrap.com/theme/beyondadmin-adminapp-angularjs-mvc-WB06R48S4
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Head -->
+<head>
+    <meta charset="utf-8" />
+    <title>MIP - Presupuesto</title>
+
+    <meta name="description" content="Dashboard" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+
+
+    <!--Basic Styles-->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link id="bootstrap-rtl-link" href="" rel="stylesheet" />
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/weather-icons.min.css" rel="stylesheet" />
+
+    <!--Fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <!--Beyond styles-->
+    <link id="beyond-link" href="assets/css/beyond.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/demo.min.css" rel="stylesheet" />
+    <link href="assets/css/typicons.min.css" rel="stylesheet" />
+    <link href="assets/css/animate.min.css" rel="stylesheet" />
+    <link id="skin-link" href="" rel="stylesheet" type="text/css" />
+
+    <!--Page Related styles-->
+    <link href="assets/css/dataTables.bootstrap.css" rel="stylesheet" />
+
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="assets/js/skins.min.js"></script>
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+<?php
+    include("header.php");
+    include("colizq.php");
+?>
+    
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="active">Presupuesto</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Header -->
+                <div class="page-header position-relative">
+                    <div class="header-title">
+                        <h1>
+                            Estructura Propuesta
+                        </h1>
+                    </div>
+                    <!--Header Buttons-->
+                    <div class="header-buttons">
+                        <a class="sidebar-toggler" href="#">
+                            <i class="fa fa-arrows-h"></i>
+                        </a>
+                        <a class="refresh" id="refresh-toggler" href="">
+                            <i class="glyphicon glyphicon-refresh"></i>
+                        </a>
+                        <a class="fullscreen" id="fullscreen-toggler" href="#">
+                            <i class="glyphicon glyphicon-fullscreen"></i>
+                        </a>
+                    </div>
+                    <!--Header Buttons End-->
+                </div>
+                <!-- /Page Header -->
+                <!-- inicio cuerpo -->
+                <div class="page-body">
+                    <!-- Nombre oportunidad -->
+                    <div class="well with-header  with-footer">
+                                <div class="header bg-blue">
+                                    Actividad x/ Sub actividad y
+                                </div>
+                                <div class="btn-group">
+                                    <a href="presup-tot.html" type="button" class="btn btn-default"><i class="fa fa-calculator"></i> Ver Propuesta</a>
+                                    <div class="btn-group">
+                                        <a class="btn btn-default " href="javascript:void(0);">Estado Propuesta</a>
+                                        <a class="btn btn-default  dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" ><i class="fa fa-angle-down"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="javascript:void(0);">Elaboracion</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Presentada</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">No presentada</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Perdida</a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="javascript:void(0);">Ganada</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <table class="table " style="margin-bottom:20px;">
+                                    
+                                    
+                                    <tr>
+                                        <th>
+                                            Empresa
+                                        </th>
+                                        <td>
+                                         Gracetales
+                                     </td>
+                                     <th>
+                                        Codigo Oportunidad
+                                    </th>
+                                    <td>
+                                        012343322333
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Nombre Oportunidad
+                                    </th>
+                                    <td colspan="3">
+                                        Diseño y Construccion de estructura y cubierta para polideportivo xxxx
+                                    </td>
+                                    
+                                </tr>
+                                
+                                
+                                
+                                
+                            </table>
+
+                                    <!-- caja  -->
+                                    <div class="widget">
+                                        <div class="widget-header bordered-left bordered-blueberry">
+                                            <span class="widget-caption">Crear la estructura del Proyecto</span>
+                                        </div><!--Widget Header-->
+                                        <div class="widget-body bordered-left bordered-blue">
+                                            
+                                            <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#myModal1"><i class="fa fa-plus"></i> Crear item de Nivel 1</button><br><br>
+                                            <!-- Inicio Caja 2 -->
+                                            <div class="panel-group accordion" id="accordion">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading ">
+                                                            <h4 class="panel-title">
+                                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                                                    1. Fundación 
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse1" class="panel-collapse collapse in">
+                                                            <div class="panel-body border-red">
+                                                                <div class="buttons-preview">
+                                                                    <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#myModal2"><i class="fa fa-plus"></i> Crear item de Nivel 2</button>
+                                                                    <a class="btn btn-default btn-xs" href="presup-apu.html">APU<i class="fa fa-plus right"></i></a>
+                                                                </div>
+                                                                <!-- Inicio Caja 3 -->
+                                                                <div class="panel-group accordion" id="accordion1">
+                                                                        <div class="panel panel-default">
+                                                                            <div class="panel-heading">
+                                                                                <h4 class="panel-title">
+                                                                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapse12">
+                                                                                        1.1. Fabricación Zapatas
+                                                                                    </a>
+                                                                                </h4>
+                                                                            </div>
+                                                                            <div id="collapse12" class="panel-collapse collapse">
+                                                                                <div class="panel-body border-palegreen">
+                                                                                    <div class="buttons-preview">
+                                                                                        <a class="btn btn-default btn-xs" href="javascript:void(0);"><i class="fa fa-plus"></i> Crear item de Nivel 3</a>
+                                                                                        <a class="btn btn-default btn-xs" href="presup-apu.html">APU<i class="fa fa-plus right"></i></a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="panel panel-default">
+                                                                            <div class="panel-heading">
+                                                                                <h4 class="panel-title">
+                                                                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapse13">
+                                                                                        1.2. Excavacion Manual
+                                                                                    </a>
+                                                                                </h4>
+                                                                            </div>
+                                                                            <div id="collapse13" class="panel-collapse collapse">
+                                                                                <div class="panel-body border-magenta">
+                                                                                    <div class="buttons-preview">
+                                                                                        <a class="btn btn-default btn-xs" href="javascript:void(0);"><i class="fa fa-plus"></i> Crear item de Nivel 3</a>
+                                                                                        <a class="btn btn-default btn-xs" href="presup-apu.html">APU<i class="fa fa-plus right"></i></a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- fin caja 3 -->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="panel panel-default">
+                                                                        <div class="panel-heading">
+                                                                            <h4 class="panel-title">
+                                                                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                                                                    2. Estructura
+                                                                                </a>
+                                                                            </h4>
+                                                                        </div>
+                                                                        <div id="collapse2" class="panel-collapse collapse">
+                                                                            <div class="panel-body border-palegreen">
+                                                                                <a class="btn btn-default purple" href="javascript:void(0);"><i class="fa fa-plus"></i> Crear item de Nivel 2</a><br><br>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="panel panel-default">
+                                                                        <div class="panel-heading">
+                                                                            <h4 class="panel-title">
+                                                                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                                                                    3. Cubierta
+                                                                                </a>
+                                                                            </h4>
+                                                                        </div>
+                                                                        <div id="collapse3" class="panel-collapse collapse">
+                                                                            <div class="panel-body border-magenta">
+                                                                                <a class="btn btn-default purple" href="javascript:void(0);"><i class="fa fa-plus"></i> Crear item de Nivel 2</a><br><br>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                <!-- fin caja 2 -->
+                                                    </div>
+                                                </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                <!-- modal fin -->
+
+                                </div>
+                            </div>
+                    <!-- fin nombre oportunidad -->
+                                        
+                </div>
+                <!-- fin cuerpo -->
+
+                                        </div><!--Widget Body-->
+                                    </div><!--Widget-->
+                                </div>
+                
+            </div>
+            <!-- /Page Content -->
+
+        </div>
+        <!-- /Page Container -->
+        <!-- Main Container -->
+
+    </div>
+                                                             <!-- modal inicio -->
+                                                             <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                            <h4 class="modal-title" id="myModalLabel">Crear item Nivel 1</h4>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div id="registration-form">
+                                                                                <form role="form">
+                                                                                    <div class="form-title"></div>
+                                                                                    <div class="form-group">
+                                                                                        <span class="input-icon icon-right">
+                                                                                            <input type="text" class="form-control" id="emailInput" placeholder="Item Nivel 1">
+                                                                                            <i class="fa fa-bars"></i>
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <button type="submit" class="btn btn-blue">Ingresar</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div> 
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- modal fin -->
+                                                             <!-- modal inicio -->
+                                                            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                            <h4 class="modal-title" id="myModalLabel">Crear item Nivel 2</h4>
+                                                                        </div>
+                                                                    <div class="modal-body">
+                                                                        <div id="registration-form">
+                                                                            <form role="form">
+                                                                                <div class="form-title"></div>
+                                                                                    <div class="form-group">
+                                                                                        <span class="input-icon icon-right">
+                                                                                        <input type="text" class="form-control" id="emailInput" placeholder="Item Nivel 2">
+                                                                                        <i class="fa fa-bars"></i>
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <button type="submit" class="btn btn-blue">Ingresar</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div> 
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- modal fin -->
+ 
+                                   
+    <!--Basic Scripts-->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!--Beyond Scripts-->
+    <script src="assets/js/beyond.js"></script>
+
+ <!--Page Related Scripts-->
+    <script src="assets/js/datatable/jquery.dataTables.js"></script>
+    <script src="assets/js/datatable/ZeroClipboard.js"></script>
+    <script src="assets/js/datatable/dataTables.tableTools.min.js"></script>
+    <script src="assets/js/datatable/dataTables.bootstrap.min.js"></script>
+    <script src="assets/js/datatable/datatables-init.js"></script>
+       <!--Page Related Scripts-->
+    <!--Jquery Select2-->
+    <script src="assets/js/select2/select2.js"></script>
+    <!--Bootstrap Tags Input-->
+    <script src="assets/js/tagsinput/bootstrap-tagsinput.js"></script>
+
+    <!--Bootstrap Date Picker-->
+    <script src="assets/js/datetime/bootstrap-datepicker.js"></script>
+
+    <!--Bootstrap Time Picker-->
+    <script src="assets/js/datetime/bootstrap-timepicker.js"></script>
+
+    <!--Bootstrap Date Range Picker-->
+    <script src="assets/js/datetime/moment.js"></script>
+    <script src="assets/js/datetime/daterangepicker.js"></script>
+
+    <!--Jquery Autosize-->
+    <script src="assets/js/textarea/jquery.autosize.js"></script>
+
+    <!--Fuelux Spinbox-->
+    <script src="assets/js/fuelux/spinbox/fuelux.spinbox.min.js"></script>
+
+    <!--jQUery MiniColors-->
+    <script src="assets/js/colorpicker/jquery.minicolors.js"></script>
+
+    <!--jQUery Knob-->
+    <script src="assets/js/knob/jquery.knob.js"></script>
+
+    <!--noUiSlider-->
+    <script src="assets/js/slider/jquery.nouislider.js"></script>
+
+    <!--jQRangeSlider-->
+    <script src="assets/js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="assets/js/slider/jQRangeSlider/jQAllRangeSliders-withRuler-min.js"></script>
+    
+    <!--Dropzone-->
+    <script src="assets/js/dropzone/dropzone.min.js"></script>
+
+    <script>
+        //--Jquery Select2--
+        $("#e1").select2();
+        $("#e3").select2();
+        $("#e4").select2();
+        $("#e2").select2({
+            placeholder: "Select a State",
+            allowClear: true
+        });
+
+        //--Bootstrap Date Picker--
+        $('.date-picker').datepicker();
+
+        //--Bootstrap Time Picker--
+        $('#timepicker1').timepicker();
+
+        //--Bootstrap Date Range Picker--
+        $('#reservation').daterangepicker();
+
+        //--JQuery Autosize--
+        $('#textareaanimated').autosize({ append: "\n" });
+
+        //--Fuelux Spinbox--
+        $('.spinbox').spinbox();
+
+
+        //--jQuery MiniColors--
+        $('.colorpicker').each(function () {
+            $(this).minicolors({
+                control: $(this).attr('data-control') || 'hue',
+                defaultValue: $(this).attr('data-defaultValue') || '',
+                inline: $(this).attr('data-inline') === 'true',
+                letterCase: $(this).attr('data-letterCase') || 'lowercase',
+                opacity: $(this).attr('data-opacity'),
+                position: $(this).attr('data-position') || 'bottom left',
+                change: function (hex, opacity) {
+                    if (!hex) return;
+                    if (opacity) hex += ', ' + opacity;
+                    try {
+                        console.log(hex);
+                    } catch (e) { }
+                },
+                theme: 'bootstrap'
+            });
+
+        });
+
+
+        //---Jquery Knob--
+        $(".knob").knob();
+
+
+        //---noUiSlider--
+        $("#sample-minimal").noUiSlider({
+            range: [0, 100],
+            start: [20, 80],
+            connect: true,
+            serialization: {
+                mark: ',',
+                resolution: 0.1,
+                to: [[$("#minimal-label1"), 'html'],
+                      [$('#minimal-label2'), 'html']]
+            }
+        });
+
+        $("#sample-onehandle").noUiSlider({
+            range: [20, 100],
+            start: 40,
+            step: 20,
+            handles: 1,
+            connect: "lower",
+            serialization: {
+                to: [$("#low"), 'html']
+            }
+        });
+        $("#sample-onehandle-upper").noUiSlider({
+            range: [20, 100],
+            start: 70,
+            step: 20,
+            handles: 1,
+            connect: "upper",
+            serialization: {
+                to: [$("#low"), 'html']
+            }
+        });
+        $('.slider').noUiSlider({
+            range: [0, 255],
+            start: 127,
+            handles: 1,
+            connect: "lower",
+            orientation: "vertical",
+            serialization: {
+                resolution: 1
+            }
+            , slide: function () {
+
+                var color = 'rgb(' + $("#red").val()
+                     + ',' + $("#green").val()
+                     + ',' + $("#blue").val()
+                     + ')';
+
+                $(".result").css({
+                    background: color
+                    , color: color
+                });
+            }
+        });
+
+        $(".sized-slider").noUiSlider({
+            range: [0, 100],
+            start: 50,
+            handles: 1,
+            connect: "lower",
+            serialization: {
+                to: [$("#low"), 'html']
+            }
+        });
+
+        $(".colored-slider").noUiSlider({
+            range: [0, 100],
+            start: 30,
+            handles: 1,
+            connect: "lower",
+            serialization: {
+                to: [$("#low"), 'html']
+            }
+        });
+
+        //--jQRangeSlider--
+        $(".sized-rangeslider").rangeSlider();
+        $(".colored-rangeslider").rangeSlider();
+        $("#rangeslider").rangeSlider();
+        $("#editrangeslider").editRangeSlider();
+        $("#daterangeslider").dateRangeSlider();
+        $("#noarrowsrangeslider").rangeSlider({ arrows: false });
+        $("#boundsrangeslider").rangeSlider({ bounds: { min: 10, max: 90 } });
+        $("#dvrangeslider").rangeSlider({ defaultValues: { min: 13, max: 66 } });
+        $("#delayrangeslider").rangeSlider({ valueLabels: "change", delayOut: 4000 });
+        $("#durationrangeslider").rangeSlider({ valueLabels: "change", durationIn: 1000, durationOut: 1000 });
+        $("#disabledrangeslider").rangeSlider({ enabled: false });
+        $("#steprangeslider").rangeSlider({ step: 10 });
+        $("#labelsrangeslider").rangeSlider({ valueLabels: "hide" });
+        $("#simlescalesrangeslider").rangeSlider({
+            scales: [
+            // Primary scale
+            {
+                first: function (val) { return val; },
+                next: function (val) { return val + 10; },
+                stop: function (val) { return false; },
+                label: function (val) { return val; },
+                format: function (tickContainer, tickStart, tickEnd) {
+                    tickContainer.addClass("myCustomClass");
+                }
+            },
+            // Secondary scale
+            {
+                first: function (val) { return val; },
+                next: function (val) {
+                    if (val % 10 === 9) {
+                        return val + 2;
+                    }
+                    return val + 1;
+                },
+                stop: function (val) { return false; },
+                label: function () { return null; }
+            }]
+        });
+        var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+        $("#dateRulersExample").dateRangeSlider({
+            bounds: { min: new Date(2012, 0, 1), max: new Date(2012, 11, 31, 12, 59, 59) },
+            defaultValues: { min: new Date(2012, 1, 10), max: new Date(2012, 4, 22) },
+            scales: [{
+                first: function (value) { return value; },
+                end: function (value) { return value; },
+                next: function (value) {
+                    var next = new Date(value);
+                    return new Date(next.setMonth(value.getMonth() + 1));
+                },
+                label: function (value) {
+                    return months[value.getMonth()];
+                },
+                format: function (tickContainer, tickStart, tickEnd) {
+                    tickContainer.addClass("myCustomClass");
+                }
+            }]
+        });
+    </script>
+    // <script>
+       
+    //     InitiateEditableDataTable.init();
+    //     InitiateExpandableDataTable.init();
+    //     InitiateSearchableDataTable.init();
+    // </script>
+</body>
+<!--  /Body -->
+</html>
